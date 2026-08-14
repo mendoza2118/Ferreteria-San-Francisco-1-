@@ -8,7 +8,7 @@
    CONFIGURACIÓN
 ========================================================= */
 
-const WHATSAPP_NUMBER = "595981000000";
+const WHATSAPP_NUMBER = "595972537313";
 
 const IMAGE_EXTENSIONS = [
     "jpg",
