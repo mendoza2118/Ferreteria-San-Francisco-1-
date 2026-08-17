@@ -31,7 +31,6 @@ const productos = [
         oferta: true
     },
 
-   
 
     {
         id: 3,
