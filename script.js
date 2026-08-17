@@ -9,12 +9,7 @@
    CONFIGURACIÓN
 ============================================================ */
 
-// IMPORTANTE:
-// Cambiá este número por el WhatsApp REAL de la ferretería.
-// Paraguay: 595 + número sin el 0 inicial.
-//
-// Ejemplo:
-// const WHATSAPP = "595981123456";
+
 
 const WHATSAPP = "595972537313";
 
@@ -36,16 +31,7 @@ const productos = [
         oferta: true
     },
 
-    {
-        id: 2,
-        nombre: "Caño Corrugado",
-        categoria: "Electricidad",
-        descripcion: "Caño corrugado para instalaciones eléctricas, resistente y flexible.",
-        precio: null,
-        imagen: "imagenes/Ca#U00f1o corrugado.jpeg",
-        destacado: false,
-        oferta: false
-    },
+   
 
     {
         id: 3,
