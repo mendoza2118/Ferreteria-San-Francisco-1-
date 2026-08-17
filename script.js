@@ -36,16 +36,6 @@ const productos = [
         oferta: true
     },
 
-    {
-        id: 2,
-        nombre: "Caño Corrugado",
-        categoria: "Electricidad",
-        descripcion: "Caño corrugado para instalaciones eléctricas, resistente y flexible.",
-        precio: null,
-        imagen: "imagenes/Ca#U00f1o corrugado.jpeg",
-        destacado: false,
-        oferta: false
-    },
 
     {
         id: 3,
