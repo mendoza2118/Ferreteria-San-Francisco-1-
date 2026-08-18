@@ -67,6 +67,14 @@ img {
     color: #fff;
 }
 
+a:focus-visible,
+button:focus-visible,
+input:focus-visible {
+    outline: 2px solid var(--orange);
+    outline-offset: 2px;
+    border-radius: 4px;
+}
+
 .container {
     width: min(1180px, 92%);
     margin: auto;
@@ -1421,8 +1429,15 @@ img {
 
     display: block;
 
+    opacity: 0;
+
     transition:
-        transform .55s var(--ease);
+        transform .55s var(--ease),
+        opacity .4s var(--ease);
+}
+
+.product-image img.loaded {
+    opacity: 1;
 }
 
 .product-card:hover .product-image img {

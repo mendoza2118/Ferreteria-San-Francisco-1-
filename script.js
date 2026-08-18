@@ -157,7 +157,7 @@ const PRODUCTS = [
         nombre: "Caño Corrugado",
         categoria: "electricidad",
         categoriaNombre: "Electricidad",
-        imagen: "imagenes/Ca#U00f1o corrugado.jpeg",
+        imagen: "imagenes/Caño corrugado.jpeg",
         descripcion: "Caño corrugado para instalaciones eléctricas.",
         precio: "Consultar",
         destacado: true
@@ -557,7 +557,8 @@ function crearProductoHTML(producto) {
                     src="${producto.imagen}"
                     alt="${producto.nombre}"
                     loading="lazy"
-                    onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23f1f4f5%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23667780%22 font-family=%22Arial%22 font-size=%2222%22%3EImagen no disponible%3C/text%3E%3C/svg%3E';"
+                    onload="this.classList.add('loaded');"
+                    onerror="this.onerror=null;this.src='data:image/svg+xml;charset=UTF-8,%3Csvg xmlns=%22http://www.w3.org/2000/svg%22 width=%22600%22 height=%22400%22 viewBox=%220 0 600 400%22%3E%3Crect width=%22600%22 height=%22400%22 fill=%22%23f1f4f5%22/%3E%3Ctext x=%2250%25%22 y=%2250%25%22 dominant-baseline=%22middle%22 text-anchor=%22middle%22 fill=%22%23667780%22 font-family=%22Arial%22 font-size=%2222%22%3EImagen no disponible%3C/text%3E%3C/svg%3E';this.classList.add('loaded');"
                 >
 
             </div>
@@ -734,11 +735,7 @@ if (searchInput) {
 
 function crearURLWhatsApp(mensaje) {
 
-    return `
-        https://wa.me/${WHATSAPP_NUMBER}?text=${
-            encodeURIComponent(mensaje)
-        }
-    `;
+    return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(mensaje)}`;
 
 }
 
