@@ -88,7 +88,7 @@ input:focus-visible {
 .announcement {
     background: #07212d;
     color: rgba(255,255,255,.72);
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .announcement-inner {
@@ -192,7 +192,7 @@ input:focus-visible {
 
     color: #8a969c;
 
-    font-size: 8px;
+    font-size: 11px;
     font-weight: 800;
 
     letter-spacing: 1.3px;
@@ -217,7 +217,7 @@ input:focus-visible {
 
     color: #5d6d75;
 
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 700;
 
     transition: .3s var(--ease);
@@ -267,7 +267,7 @@ input:focus-visible {
 
     border-radius: 11px;
 
-    font-size: 10px;
+    font-size: 13px;
     font-weight: 800;
 
     box-shadow:
@@ -342,7 +342,7 @@ input:focus-visible {
 
     color: var(--navy);
 
-    font-size: 12px;
+    font-size: 14px;
     font-weight: 700;
 }
 
@@ -468,7 +468,7 @@ input:focus-visible {
 
     background: rgba(255,255,255,.055);
 
-    font-size: 9px;
+    font-size: 12px;
     font-weight: 800;
 
     letter-spacing: 1.2px;
@@ -516,7 +516,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.69);
 
-    font-size: 14px;
+    font-size: 15px;
 
     line-height: 1.8;
 }
@@ -551,7 +551,7 @@ input:focus-visible {
 
     border-radius: 11px;
 
-    font-size: 11px;
+    font-size: 14px;
     font-weight: 800;
 
     transition: .3s var(--ease);
@@ -647,7 +647,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.58);
 
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .hero-trust span::before {
@@ -669,7 +669,7 @@ input:focus-visible {
 
     color: #4be0a4;
 
-    font-size: 9px;
+    font-size: 12px;
 
     font-weight: 800;
 }
@@ -719,7 +719,7 @@ input:focus-visible {
 }
 
 .mini-label {
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 800;
 
@@ -729,7 +729,7 @@ input:focus-visible {
 }
 
 .live {
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 700;
 
@@ -869,7 +869,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.45);
 
-    font-size: 7px;
+    font-size: 10px;
 
     letter-spacing: 1.1px;
 
@@ -883,7 +883,7 @@ input:focus-visible {
 
     font-family: Manrope, sans-serif;
 
-    font-size: 16px;
+    font-size: 17px;
 }
 
 .hero-card-bottom a {
@@ -931,11 +931,11 @@ input:focus-visible {
 .floating-chip strong {
     font-family: Manrope, sans-serif;
 
-    font-size: 14px;
+    font-size: 15px;
 }
 
 .floating-chip span {
-    font-size: 8px;
+    font-size: 11px;
 
     color: rgba(255,255,255,.55);
 }
@@ -1066,7 +1066,7 @@ input:focus-visible {
 
     color: var(--navy);
 
-    font-size: 10px;
+    font-size: 13px;
 
     font-weight: 800;
 }
@@ -1078,7 +1078,7 @@ input:focus-visible {
 
     color: #87949a;
 
-    font-size: 8px;
+    font-size: 11px;
 }
 
 
@@ -1101,7 +1101,7 @@ input:focus-visible {
 
     color: var(--orange);
 
-    font-size: 9px;
+    font-size: 12px;
 
     font-weight: 800;
 
@@ -1129,7 +1129,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 14px;
 
     line-height: 1.8;
 }
@@ -1222,7 +1222,7 @@ input:focus-visible {
 
     color: var(--navy);
 
-    font-size: 11px;
+    font-size: 14px;
 
     font-weight: 800;
 }
@@ -1234,7 +1234,7 @@ input:focus-visible {
 
     color: #8b989e;
 
-    font-size: 8px;
+    font-size: 11px;
 }
 
 
@@ -1289,7 +1289,7 @@ input:focus-visible {
 
     color: var(--ink);
 
-    font-size: 11px;
+    font-size: 14px;
 
     box-shadow: var(--shadow);
 
@@ -1331,7 +1331,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 9px;
+    font-size: 12px;
 
     font-weight: 800;
 
@@ -1477,7 +1477,7 @@ input:focus-visible {
 
     color: #fff;
 
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 800;
 
@@ -1497,7 +1497,7 @@ input:focus-visible {
 
     color: #fff;
 
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 800;
 }
@@ -1516,7 +1516,7 @@ input:focus-visible {
 
     color: var(--orange);
 
-    font-size: 8px;
+    font-size: 11px;
 
     font-weight: 800;
 
@@ -1532,7 +1532,7 @@ input:focus-visible {
 
     font-family: Manrope, sans-serif;
 
-    font-size: 14px;
+    font-size: 15px;
 
     line-height: 1.3;
 
@@ -1546,7 +1546,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 10px;
+    font-size: 13px;
 
     line-height: 1.55;
 }
@@ -1571,7 +1571,7 @@ input:focus-visible {
 
     font-family: Manrope, sans-serif;
 
-    font-size: 16px;
+    font-size: 17px;
 
     font-weight: 800;
 }
@@ -1579,7 +1579,7 @@ input:focus-visible {
 .old-price {
     color: #9aa5aa;
 
-    font-size: 8px;
+    font-size: 11px;
 
     text-decoration: line-through;
 }
@@ -1611,7 +1611,7 @@ input:focus-visible {
 
     color: #fff;
 
-    font-size: 9px;
+    font-size: 12px;
 
     font-weight: 800;
 
@@ -1690,7 +1690,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 14px;
 }
 
 
@@ -1793,7 +1793,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.62);
 
-    font-size: 11px;
+    font-size: 14px;
 }
 
 
@@ -1907,7 +1907,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.5);
 
-    font-size: 7px;
+    font-size: 10px;
 
     letter-spacing: 1.4px;
 
@@ -1950,7 +1950,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 12px;
+    font-size: 14px;
 
     line-height: 1.8;
 }
@@ -1972,7 +1972,7 @@ input:focus-visible {
 
     color: #53656e;
 
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .why-copy li span {
@@ -1990,7 +1990,7 @@ input:focus-visible {
 
     color: var(--green2);
 
-    font-size: 9px;
+    font-size: 12px;
 
     font-weight: 800;
 }
@@ -2048,7 +2048,7 @@ input:focus-visible {
 
     color: var(--muted);
 
-    font-size: 11px;
+    font-size: 14px;
 }
 
 
@@ -2105,7 +2105,7 @@ input:focus-visible {
 }
 
 .whatsapp-cta strong {
-    font-size: 11px;
+    font-size: 14px;
 }
 
 .whatsapp-cta small {
@@ -2113,11 +2113,11 @@ input:focus-visible {
 
     color: rgba(255,255,255,.67);
 
-    font-size: 8px;
+    font-size: 11px;
 }
 
 .whatsapp-cta b {
-    font-size: 16px;
+    font-size: 17px;
 }
 
 
@@ -2157,7 +2157,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.5);
 
-    font-size: 10px;
+    font-size: 13px;
 
     line-height: 1.7;
 }
@@ -2167,7 +2167,7 @@ input:focus-visible {
 
     font-family: Manrope, sans-serif;
 
-    font-size: 10px;
+    font-size: 13px;
 }
 
 .footer a,
@@ -2178,7 +2178,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.5);
 
-    font-size: 9px;
+    font-size: 12px;
 
     line-height: 1.6;
 }
@@ -2234,7 +2234,7 @@ input:focus-visible {
 
     color: rgba(255,255,255,.35);
 
-    font-size: 8px;
+    font-size: 11px;
 }
 
 
@@ -2264,7 +2264,7 @@ input:focus-visible {
 
     color: #fff;
 
-    font-size: 10px;
+    font-size: 13px;
 
     font-weight: 800;
 
@@ -2554,7 +2554,7 @@ input:focus-visible {
 @media(max-width:560px) {
 
     .announcement {
-        font-size: 8px;
+        font-size: 11px;
     }
 
     .announcement-desktop {
@@ -2580,7 +2580,7 @@ input:focus-visible {
     }
 
     .hero-copy > p {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .hero-actions {
@@ -2662,13 +2662,13 @@ input:focus-visible {
     }
 
     .product-info h3 {
-        font-size: 12px;
+        font-size: 14px;
     }
 
     .product-description {
         min-height: auto;
 
-        font-size: 9px;
+        font-size: 12px;
     }
 
     .price {
@@ -2676,7 +2676,7 @@ input:focus-visible {
     }
 
     .product-btn {
-        font-size: 8px;
+        font-size: 11px;
     }
 
     .promo-content {
