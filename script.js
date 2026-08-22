@@ -522,8 +522,16 @@ function iniciarMarquesina() {
 
     const items = CATEGORIES.filter(category => category.id !== "todos").map(pill).join("");
 
-    // Se duplica el contenido para lograr un loop continuo sin salto visual
-    track.innerHTML = items + items;
+    const sinAnimacion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+
+    if (sinAnimacion) {
+        // Sin animación: se muestra una sola fila, sin duplicar contenido
+        track.innerHTML = items;
+        track.style.animation = "none";
+    } else {
+        // Se duplica el contenido para lograr un loop continuo sin salto visual
+        track.innerHTML = items + items;
+    }
 
 }
 
