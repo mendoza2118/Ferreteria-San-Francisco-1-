@@ -1,1026 +1,462 @@
 <!DOCTYPE html>
 <html lang="es">
-
 <head>
-    <meta charset="UTF-8">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0f172a">
 
-    <meta name="viewport"
-        content="width=device-width, initial-scale=1.0">
+<title>Ferretería San Francisco | Todo para tu proyecto</title>
+<meta name="description" content="Herramientas, materiales y soluciones para construcción, hogar y taller. Consultá disponibilidad y precios por WhatsApp.">
 
-    <meta name="description"
-        content="Ferretería San Francisco - herramientas, materiales y soluciones para tus proyectos.">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Ferretería San Francisco | Todo para tu proyecto">
+<meta property="og:description" content="Herramientas, materiales y soluciones para construcción, hogar y taller. Consultá disponibilidad y precios por WhatsApp.">
+<meta property="og:locale" content="es_PY">
 
-    <meta name="theme-color"
-        content="#0b2b3a">
+<!-- Favicon (ícono de marca embebido, sin archivo extra) -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230f172a'/%3E%3Cpath fill='%23F97316' d='M14.7 3.3a1 1 0 0 0-1.4 0l-2.1 2.1-1.5-1.5a1 1 0 0 0-1.4 1.4l1.5 1.5-6.5 6.5a2 2 0 0 0 0 2.8l2.2 2.2a2 2 0 0 0 2.8 0l6.5-6.5 1.5 1.5a1 1 0 0 0 1.4-1.4l-1.5-1.5 2.1-2.1a1 1 0 0 0 0-1.4l-3.6-3.6ZM5.9 17.1 3.7 14.9l6.5-6.5 2.2 2.2-6.5 6.5Z'/%3E%3C/svg%3E">
 
-    <meta name="robots"
-        content="index, follow">
+<!-- Google Fonts: Plus Jakarta Sans (display) + Inter (texto) -->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@500;600;700;800&family=Inter:wght@400;500;600;700&family=Outfit:wght@500;600;700&display=swap" rel="stylesheet">
 
-    <title>
-        Ferretería San Francisco | Todo para tus proyectos
-    </title>
+<!-- Tailwind (CDN Play — sin paso de build, ideal para GitHub Pages) -->
+<script src="https://cdn.tailwindcss.com"></script>
+<script>
+    tailwind.config = {
+        theme: {
+            extend: {
+                colors: {
+                    ink: '#0f172a',
+                    inkSoft: '#1e293b',
+                    accent: {
+                        DEFAULT: '#F97316',
+                        dark: '#C2410C',
+                        light: '#FFEDD5'
+                    }
+                },
+                fontFamily: {
+                    display: ['"Plus Jakarta Sans"', 'sans-serif'],
+                    body: ['Inter', 'sans-serif'],
+                    outfit: ['Outfit', 'sans-serif']
+                },
+                animation: {
+                    'pulse-ring': 'pulseRing 2.2s cubic-bezier(0.4,0,0.6,1) infinite',
+                    'float-slow': 'floatSlow 6s ease-in-out infinite'
+                },
+                keyframes: {
+                    pulseRing: {
+                        '0%': { boxShadow: '0 0 0 0 rgba(34,197,94,.45)' },
+                        '70%': { boxShadow: '0 0 0 12px rgba(34,197,94,0)' },
+                        '100%': { boxShadow: '0 0 0 0 rgba(34,197,94,0)' }
+                    },
+                    floatSlow: {
+                        '0%,100%': { transform: 'translateY(0)' },
+                        '50%': { transform: 'translateY(-10px)' }
+                    }
+                }
+            }
+        }
+    }
+</script>
 
-    <!-- Favicon (usa la misma marca del header, sin necesidad de un archivo aparte) -->
-    <link rel="icon"
-        href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Crect width='24' height='24' rx='6' fill='%230b2b3a'/%3E%3Cpath fill='%23fff' d='M14.7 3.3a1 1 0 0 0-1.4 0l-2.1 2.1-1.5-1.5a1 1 0 0 0-1.4 1.4l1.5 1.5-6.5 6.5a2 2 0 0 0 0 2.8l2.2 2.2a2 2 0 0 0 2.8 0l6.5-6.5 1.5 1.5a1 1 0 0 0 1.4-1.4l-1.5-1.5 2.1-2.1a1 1 0 0 0 0-1.4l-3.6-3.6ZM5.9 17.1 3.7 14.9l6.5-6.5 2.2 2.2-6.5 6.5Z'/%3E%3C/svg%3E">
-
-    <!-- Open Graph / redes sociales -->
-    <meta property="og:type" content="website">
-    <meta property="og:title" content="Ferretería San Francisco | Todo para tus proyectos">
-    <meta property="og:description" content="Herramientas, materiales y soluciones para construcción, hogar y taller. Consultá disponibilidad y precios por WhatsApp.">
-    <meta property="og:locale" content="es_PY">
-
-    <link rel="preconnect"
-        href="https://fonts.googleapis.com">
-
-    <link rel="preconnect"
-        href="https://fonts.gstatic.com"
-        crossorigin>
-
-    <link
-        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Manrope:wght@600;700;800&display=swap"
-        rel="stylesheet">
-
-    <link rel="stylesheet"
-        href="styles.css">
+<link rel="stylesheet" href="styles.css">
 </head>
 
-<body>
+<body class="bg-zinc-50 text-ink font-body antialiased">
 
-    <!-- =====================================================
-         BARRA SUPERIOR
-    ====================================================== -->
+<!-- ==========================================================
+     HEADER FLOTANTE
+=========================================================== -->
+<header class="sticky top-4 z-50 mx-4">
+    <div class="mx-auto max-w-6xl">
+        <div class="flex items-center justify-between gap-4 rounded-2xl border border-white/60 bg-white/70 px-5 py-3 shadow-[0_8px_30px_rgb(15,23,42,0.08)] backdrop-blur-md">
 
-    <div class="announcement">
-
-        <div class="container announcement-inner">
-
-            <span class="status-dot"></span>
-
-            <span>
-                Consultá disponibilidad y precios directamente por WhatsApp
-            </span>
-
-            <span class="announcement-desktop">
-                Atención personalizada · Lun - Sáb
-            </span>
-
-        </div>
-
-    </div>
-
-
-    <!-- =====================================================
-         HEADER
-    ====================================================== -->
-
-    <header class="site-header" id="inicio">
-
-        <div class="container nav">
-
-            <a href="#inicio"
-                class="brand"
-                aria-label="Ferretería San Francisco">
-
-                <span class="brand-mark">
-
-                    <svg viewBox="0 0 24 24"
-                        aria-hidden="true">
-
+            <a href="#inicio" class="flex items-center gap-2.5 shrink-0">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-ink text-accent">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor" aria-hidden="true">
                         <path d="M14.7 3.3a1 1 0 0 0-1.4 0l-2.1 2.1-1.5-1.5a1 1 0 0 0-1.4 1.4l1.5 1.5-6.5 6.5a2 2 0 0 0 0 2.8l2.2 2.2a2 2 0 0 0 2.8 0l6.5-6.5 1.5 1.5a1 1 0 0 0 1.4-1.4l-1.5-1.5 2.1-2.1a1 1 0 0 0 0-1.4l-3.6-3.6ZM5.9 17.1 3.7 14.9l6.5-6.5 2.2 2.2-6.5 6.5Z"/>
-
                     </svg>
-
                 </span>
-
-                <span>
-
-                    <strong>
-                        San Francisco
-                    </strong>
-
-                    <small>
-                        FERRETERÍA
-                    </small>
-
+                <span class="font-display leading-none">
+                    <span class="block text-[15px] font-extrabold tracking-tight text-ink">San Francisco</span>
+                    <span class="block text-[10px] font-semibold uppercase tracking-[0.18em] text-slate-400">Ferretería</span>
                 </span>
-
             </a>
 
-
-            <!-- NAV DESKTOP -->
-
-            <nav class="desktop-nav">
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-                <a href="#categorias">
-                    Categorías
-                </a>
-
-                <a href="#productos">
-                    Productos
-                </a>
-
-                <a href="#nosotros">
-                    Nosotros
-                </a>
-
-                <a href="#contacto">
-                    Contacto
-                </a>
-
+            <nav class="hidden lg:flex items-center gap-7 font-display text-[14px] font-medium text-slate-600">
+                <a href="#inicio" class="transition hover:text-ink">Inicio</a>
+                <a href="#categorias" class="transition hover:text-ink">Categorías</a>
+                <a href="#productos" class="transition hover:text-ink">Productos</a>
+                <a href="#nosotros" class="transition hover:text-ink">Nosotros</a>
+                <a href="#contacto" class="transition hover:text-ink">Contacto</a>
             </nav>
 
-
-            <!-- WHATSAPP HEADER -->
-
-            <a href="#"
-                class="header-whatsapp"
-                data-whatsapp>
-
-                <span class="wa-icon-container"></span>
-
-                <span>
-                    WhatsApp
+            <div class="hidden md:flex items-center gap-2 rounded-full bg-emerald-50 px-3.5 py-1.5 text-[12px] font-semibold text-emerald-700 shrink-0">
+                <span class="relative flex h-2 w-2">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-emerald-400 opacity-75"></span>
+                    <span class="relative inline-flex h-2 w-2 rounded-full bg-emerald-500"></span>
                 </span>
+                En línea · Consultas instantáneas
+            </div>
 
-            </a>
-
-
-            <!-- MENU MOBILE -->
-
-            <button
-                class="menu-btn"
-                id="menuBtn"
-                aria-label="Abrir menú">
-
-                <span></span>
-                <span></span>
-                <span></span>
-
+            <button id="menuBtn" aria-label="Abrir menú" class="lg:hidden grid h-10 w-10 place-items-center rounded-xl border border-slate-200 text-ink shrink-0">
+                <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M4 7h16M4 12h16M4 17h16"/></svg>
             </button>
-
         </div>
 
-
-        <!-- MENU MOBILE -->
-
-        <nav class="mobile-nav"
-            id="mobileNav">
-
-            <a href="#inicio">
-                Inicio
-            </a>
-
-            <a href="#categorias">
-                Categorías
-            </a>
-
-            <a href="#productos">
-                Productos
-            </a>
-
-            <a href="#nosotros">
-                Nosotros
-            </a>
-
-            <a href="#contacto">
-                Contacto
-            </a>
-
+        <nav id="mobileNav" class="mobile-nav mt-2 flex flex-col gap-1 rounded-2xl border border-white/60 bg-white/90 p-3 font-display text-sm font-medium text-slate-600 shadow-lg backdrop-blur-md lg:hidden">
+            <a href="#inicio" class="rounded-lg px-3 py-2.5 hover:bg-zinc-100 hover:text-ink">Inicio</a>
+            <a href="#categorias" class="rounded-lg px-3 py-2.5 hover:bg-zinc-100 hover:text-ink">Categorías</a>
+            <a href="#productos" class="rounded-lg px-3 py-2.5 hover:bg-zinc-100 hover:text-ink">Productos</a>
+            <a href="#nosotros" class="rounded-lg px-3 py-2.5 hover:bg-zinc-100 hover:text-ink">Nosotros</a>
+            <a href="#contacto" class="rounded-lg px-3 py-2.5 hover:bg-zinc-100 hover:text-ink">Contacto</a>
         </nav>
-
-    </header>
-
-
-    <!-- =====================================================
-         HERO
-    ====================================================== -->
-
-    <main>
-
-        <section class="hero">
-
-            <div class="hero-grid-pattern"></div>
-
-            <div class="hero-glow hero-glow-one"></div>
-
-            <div class="hero-glow hero-glow-two"></div>
-
-
-            <div class="container hero-content">
-
-                <div class="hero-copy reveal">
-
-                    <div class="eyebrow">
-
-                        <span></span>
-
-                        Ferretería San Francisco
-
-                    </div>
-
-
-                    <h1>
-
-                        Todo lo que
-                        necesitás para
-                        <em>tu proyecto.</em>
-
-                    </h1>
-
-
-                    <p>
-
-                        Herramientas, materiales y soluciones
-                        para construcción, hogar y taller.
-                        Consultá disponibilidad y precios
-                        directamente con nosotros.
-
-                    </p>
-
-
-                    <div class="hero-actions">
-
-                        <a href="#productos"
-                            class="btn btn-accent">
-
-                            Ver productos
-
-                        </a>
-
-
-                        <a href="#"
-                            class="btn btn-outline"
-                            data-whatsapp>
-
-                            <span class="wa-icon-container"></span>
-
-                            Consultar por WhatsApp
-
-                        </a>
-
-                    </div>
-
-
-                    <div class="hero-trust">
-
-                        <span>
-                            Productos seleccionados
-                        </span>
-
-                        <span>
-                            Atención personalizada
-                        </span>
-
-                        <span>
-                            Consulta rápida
-                        </span>
-
-                    </div>
-
-                </div>
-
-
-                <!-- HERO VISUAL -->
-
-                <div class="hero-visual reveal reveal-delay">
-
-                    <div class="floating-chip chip-one">
-
-                        <strong>
-                            +21
-                        </strong>
-
-                        <span>
-                            productos disponibles
-                        </span>
-
-                    </div>
-
-
-                    <div class="hero-card">
-
-                        <div class="hero-card-top">
-
-                            <span class="mini-label">
-                                PRODUCTO DESTACADO
-                            </span>
-
-                            <span class="live">
-                                <i></i>
-                                Disponible
-                            </span>
-
-                        </div>
-
-
-                        <div class="hero-product-art">
-
-                            <div class="art-ring"></div>
-
-                            <div class="art-tool">
-
-                                <span></span>
-
-                            </div>
-
-                        </div>
-
-
-                        <div class="hero-card-bottom">
-
-                            <div>
-
-                                <small>
-                                    SAN FRANCISCO
-                                </small>
-
-                                <strong>
-                                    Calidad para tu proyecto
-                                </strong>
-
-                            </div>
-
-                            <a href="#productos">
-                                →
-                            </a>
-
-                        </div>
-
-                    </div>
-
-
-                    <div class="floating-chip chip-two">
-
-                        <strong>
-                            WhatsApp
-                        </strong>
-
-                        <span>
-                            Consultá ahora
-                        </span>
-
-                    </div>
-
-                </div>
-
+    </div>
+</header>
+
+
+<!-- ==========================================================
+     HERO
+=========================================================== -->
+<section id="inicio" class="relative overflow-hidden bg-ink pb-14 pt-16 md:pt-24">
+
+    <!-- patrón "plano técnico" de fondo: referencia sutil a la obra/construcción -->
+    <div class="blueprint-grid pointer-events-none absolute inset-0 opacity-[0.07]"></div>
+    <div class="pointer-events-none absolute -top-32 right-[-10%] h-[420px] w-[420px] animate-float-slow rounded-full bg-accent/30 blur-[120px]"></div>
+    <div class="pointer-events-none absolute bottom-[-15%] left-[-10%] h-[360px] w-[360px] rounded-full bg-blue-500/20 blur-[120px]"></div>
+
+    <div class="relative mx-auto grid max-w-6xl gap-14 px-4 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
+
+        <div>
+            <span class="reveal hero-badge inline-flex items-center gap-2 rounded-full border border-white/10 bg-white/5 px-4 py-1.5 text-[12px] font-semibold uppercase tracking-wider text-accent">
+                <span class="relative flex h-1.5 w-1.5">
+                    <span class="absolute inline-flex h-full w-full animate-ping rounded-full bg-accent opacity-75"></span>
+                    <span class="relative inline-flex h-1.5 w-1.5 rounded-full bg-accent"></span>
+                </span>
+                Ferretería San Francisco
+            </span>
+
+            <h1 class="reveal mt-5 font-display text-[42px] font-extrabold leading-[1.08] tracking-tight text-white md:text-[56px]" style="transition-delay:.1s">
+                Todo lo que necesitás para
+                <span class="word-rotator gradient-text" id="wordRotator"><span>tu proyecto.</span></span>
+            </h1>
+
+            <p class="reveal mt-5 max-w-md text-[16px] leading-relaxed text-slate-300" style="transition-delay:.2s">
+                Herramientas, materiales y soluciones para construcción, hogar y taller.
+                Consultá disponibilidad y precios directamente con nosotros.
+            </p>
+
+            <div class="reveal mt-8 flex flex-wrap items-center gap-3" style="transition-delay:.3s">
+                <a href="#productos" class="group inline-flex items-center gap-2 rounded-xl bg-accent px-6 py-3.5 font-display text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(249,115,22,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-accent-dark hover:shadow-[0_12px_32px_rgba(249,115,22,0.5)] active:scale-95">
+                    Ver productos
+                    <svg viewBox="0 0 24 24" class="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+                </a>
+
+                <button data-whatsapp class="inline-flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 px-6 py-3.5 font-display text-[14px] font-bold text-white backdrop-blur-md transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:border-white/30 hover:bg-white/10 active:scale-95">
+                    <span class="wa-icon-container h-4 w-4 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:fill-current"></span>
+                    Consultar por WhatsApp
+                </button>
             </div>
 
-
-            <div class="scroll-cue">
-                <span></span>
+            <!-- Marquesina de categorías: le da movimiento constante al hero -->
+            <div class="reveal marquee mt-10" style="transition-delay:.4s">
+                <div class="marquee-track" id="marqueeTrack">
+                    <!-- duplicado generado por script.js para loop continuo -->
+                </div>
             </div>
+        </div>
 
-        </section>
+        <!-- BENTO HERO CARD con tilt 3D según el mouse -->
+        <div class="reveal tilt-card grid grid-cols-2 gap-3.5" id="tiltCard" style="perspective: 1000px; transition-delay:.15s">
 
-
-        <!-- =================================================
-             BENEFICIOS
-        ================================================== -->
-
-        <section class="quick-benefits">
-
-            <div class="container">
-
-                <div class="benefits-grid">
-
-                    <article class="benefit-card">
-
-                        <div class="benefit-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <path d="M12 2 3 6v6c0 5.2 3.8 9.8 9 11 5.2-1.2 9-5.8 9-11V6l-9-4Zm0 5 5 2.2V12c0 3.6-2.5 6.8-5 7.8-2.5-1-5-4.2-5-7.8V9.2L12 7Zm-1 7.6-2-2 1.4-1.4L11 11.8l2.6-2.6L15 10.6l-4 4Z"/>
-
-                            </svg>
-
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Productos seleccionados
-                            </strong>
-
-                            <small>
-                                Calidad para tus proyectos
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <div class="benefit-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <path d="M12 2a10 10 0 1 0 10 10A10 10 0 0 0 12 2Zm1 17h-2v-2h2Zm2.1-7.3-.9.9A3 3 0 0 0 13 15h-2a4.6 4.6 0 0 1 1.5-3.3l1.1-1.1A1.9 1.9 0 0 0 14 9.2 2 2 0 0 0 10 9H8a4 4 0 0 1 8 0 3.8 3.8 0 0 1-.9 2.7Z"/>
-
-                            </svg>
-
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Atención personalizada
-                            </strong>
-
-                            <small>
-                                Te ayudamos a elegir
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <div class="benefit-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <path d="M20 8h-3V4H3a2 2 0 0 0-2 2v11h2a3 3 0 0 0 6 0h6a3 3 0 0 0 6 0h2v-5l-3-4Zm-14 9.5A1.5 1.5 0 1 1 6 16a1.5 1.5 0 0 1 0 1.5ZM15 14H9a3 3 0 0 0-6 0H3V6h12v8Zm3 3.5a1.5 1.5 0 1 1 1.5-1.5 1.5 1.5 0 0 1-1.5 1.5ZM17 10V8h2l2 2Z"/>
-
-                            </svg>
-
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Consulta rápida
-                            </strong>
-
-                            <small>
-                                Escribinos por WhatsApp
-                            </small>
-
-                        </div>
-
-                    </article>
-
-
-                    <article class="benefit-card">
-
-                        <div class="benefit-icon">
-
-                            <svg viewBox="0 0 24 24">
-
-                                <path d="M12 21s8-4.4 8-11V5l-8-3-8 3v5c0 6.6 8 11 8 11Zm0-3.2c-2-1.4-5-4.2-5-7.8V7.4l5-1.9 5 1.9V10c0 3.6-3 6.4-5 7.8Z"/>
-
-                            </svg>
-
-                        </div>
-
-                        <div>
-
-                            <strong>
-                                Compra con confianza
-                            </strong>
-
-                            <small>
-                                Información clara
-                            </small>
-
-                        </div>
-
-                    </article>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             CATEGORÍAS
-        ================================================== -->
-
-        <section
-            class="section"
-            id="categorias">
-
-            <div class="container">
-
-                <div class="section-heading reveal">
-
-                    <span class="section-kicker">
-                        Explorá el catálogo
-                    </span>
-
-                    <h2>
-                        Encontrá lo que necesitás.
-                    </h2>
-
-                    <p>
-                        Navegá por categorías y encontrá
-                        rápidamente los productos para tu
-                        proyecto.
-                    </p>
-
-                </div>
-
-
-                <div
-                    class="categories reveal"
-                    id="categories">
-
-                    <!-- JS -->
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             PRODUCTOS
-        ================================================== -->
-
-        <section
-            class="section products-section"
-            id="productos">
-
-            <div class="container">
-
-                <div class="products-top reveal">
-
-                    <div class="section-heading">
-
-                        <span class="section-kicker">
-                            Catálogo
-                        </span>
-
-                        <h2>
-                            Productos destacados.
-                        </h2>
-
-                        <p>
-                            Algunos de nuestros productos.
-                            Consultá precio y disponibilidad
-                            por WhatsApp.
-                        </p>
-
-                    </div>
-
-
-                    <div class="search-box">
-
-                        <svg viewBox="0 0 24 24">
-
-                            <path d="m21 19.6-4.4-4.4A7.9 7.9 0 1 0 15.2 16l4.4 4.4L21 19.6ZM5 10a5 5 0 1 1 10 0 5 5 0 0 1-10 0Z"/>
-
-                        </svg>
-
-                        <input
-                            type="search"
-                            id="searchInput"
-                            placeholder="Buscar producto..."
-                            autocomplete="off">
-
-                    </div>
-
-                </div>
-
-
-                <div
-                    class="filters"
-                    id="filters">
-
-                    <!-- JS -->
-
-                </div>
-
-
-                <div
-                    class="products-grid"
-                    id="productsGrid">
-
-                    <!-- JS -->
-
-                </div>
-
-
-                <div
-                    class="empty-state hidden"
-                    id="emptyState">
-
-                    <div class="empty-icon">
-                        ⌕
-                    </div>
-
-                    <h3>
-                        No encontramos ese producto
-                    </h3>
-
-                    <p>
-                        Probá con otro nombre o consultanos
-                        directamente por WhatsApp.
-                    </p>
-
-                    <a href="#"
-                        class="btn btn-accent"
-                        data-whatsapp>
-
-                        Consultar por WhatsApp
-
-                    </a>
-
-                </div>
-
-            </div>
-
-        </section>
-
-
-        <!-- =================================================
-             PROMOCIÓN
-        ================================================== -->
-
-        <section class="promo-banner">
-
-            <div class="promo-orb"></div>
-
-            <div class="container promo-content reveal">
-
+            <div class="col-span-2 flex items-center justify-between rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-md animate-float-slow">
                 <div>
-
-                    <span class="section-kicker light">
-                        ¿No encontraste lo que buscabas?
-                    </span>
-
-                    <h2>
-                        Consultanos. Podemos ayudarte a encontrarlo.
-                    </h2>
-
-                    <p>
-                        Escribinos por WhatsApp y preguntanos
-                        por disponibilidad, precios o productos
-                        que no aparecen en el catálogo.
-                    </p>
-
+                    <p class="font-display text-3xl font-extrabold text-white">+21</p>
+                    <p class="text-[13px] text-slate-300">productos disponibles</p>
                 </div>
-
-
-                <a href="#"
-                    class="btn btn-white"
-                    data-whatsapp>
-
-                    <span class="wa-icon-container"></span>
-
-                    Consultar ahora
-
-                </a>
-
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-accent/15 text-accent">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 7 12 3 4 7v10l8 4 8-4V7Z"/><path d="M4 7l8 4 8-4M12 11v10"/></svg>
+                </span>
             </div>
 
-        </section>
-
-
-        <!-- =================================================
-             NOSOTROS
-        ================================================== -->
-
-        <section
-            class="section why-section"
-            id="nosotros">
-
-            <div class="container why-grid">
-
-                <div class="why-visual reveal">
-
-                    <div class="why-pattern"></div>
-
-                    <div class="why-line"></div>
-
-                    <div class="why-badge">
-
-                        <span>
-                            SF
-                        </span>
-
-                        <strong>
-                            Ferretería
-                        </strong>
-
-                        <small>
-                            SAN FRANCISCO
-                        </small>
-
-                    </div>
-
-                </div>
-
-
-                <div class="why-copy reveal reveal-delay">
-
-                    <span class="section-kicker">
-                        Sobre nosotros
-                    </span>
-
-                    <h2>
-                        Soluciones para cada proyecto.
-                    </h2>
-
-                    <p>
-                        En Ferretería San Francisco buscamos
-                        ofrecer productos útiles para construcción,
-                        hogar, mantenimiento y taller, acompañando
-                        al cliente en la elección de lo que necesita.
-                    </p>
-
-
-                    <ul>
-
-                        <li>
-                            <span>✓</span>
-                            Herramientas y materiales
-                        </li>
-
-                        <li>
-                            <span>✓</span>
-                            Atención personalizada
-                        </li>
-
-                        <li>
-                            <span>✓</span>
-                            Consultas directas por WhatsApp
-                        </li>
-
-                        <li>
-                            <span>✓</span>
-                            Catálogo práctico y actualizado
-                        </li>
-
-                    </ul>
-
-
-                    <a href="#productos"
-                        class="btn btn-dark">
-
-                        Ver catálogo
-
-                    </a>
-
-                </div>
-
+            <div class="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-md transition-colors duration-300 hover:border-accent/30 hover:bg-white/[0.09]">
+                <span class="grid h-9 w-9 place-items-center rounded-lg bg-accent/15 text-accent transition-transform duration-300 group-hover:scale-110">
+                    <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+                </span>
+                <p class="mt-3 font-display text-[14px] font-bold text-white">Envíos locales</p>
+                <p class="text-[12.5px] text-slate-400">Coordinación rápida</p>
             </div>
 
-        </section>
+            <div class="group rounded-2xl border border-white/10 bg-white/[0.06] p-5 backdrop-blur-md transition-colors duration-300 hover:border-accent/30 hover:bg-white/[0.09]">
+                <span class="grid h-9 w-9 place-items-center rounded-lg bg-accent/15 text-accent transition-transform duration-300 group-hover:scale-110">
+                    <svg viewBox="0 0 24 24" class="h-[18px] w-[18px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+                </span>
+                <p class="mt-3 font-display text-[14px] font-bold text-white">Atención personalizada</p>
+                <p class="text-[12.5px] text-slate-400">Te ayudamos a elegir</p>
+            </div>
 
-
-        <!-- =================================================
-             CONTACTO
-        ================================================== -->
-
-        <section
-            class="contact-cta"
-            id="contacto">
-
-            <div class="container">
-
-                <div class="contact-card reveal">
-
+            <div class="col-span-2 rounded-2xl border border-accent/20 bg-gradient-to-br from-accent/20 to-transparent p-5 backdrop-blur-md">
+                <div class="flex items-center justify-between">
                     <div>
-
-                        <span class="section-kicker">
-                            Estamos para ayudarte
-                        </span>
-
-                        <h2>
-                            ¿Tenés una consulta?
-                            Hablemos por WhatsApp.
-                        </h2>
-
-                        <p>
-                            Consultá por productos, precios,
-                            disponibilidad o cualquier otra duda.
-                        </p>
-
+                        <p class="font-display text-[13px] font-bold uppercase tracking-wide text-accent">Consulta rápida</p>
+                        <p class="mt-1 text-[13px] text-slate-300">Escribinos y respondemos al toque.</p>
                     </div>
-
-
-                    <a href="#"
-                        class="whatsapp-cta"
-                        data-whatsapp>
-
-                        <span class="wa-icon-container"></span>
-
-                        <span>
-
-                            <strong>
-                                Escribir por WhatsApp
-                            </strong>
-
-                            <small>
-                                Respuesta rápida
-                            </small>
-
-                        </span>
-
-                        <b>
-                            →
-                        </b>
-
-                    </a>
-
+                    <span class="grid h-9 w-9 place-items-center rounded-lg bg-accent text-white">
+                        <span class="wa-icon-container h-4 w-4 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:fill-current"></span>
+                    </span>
                 </div>
-
-            </div>
-
-        </section>
-
-    </main>
-
-
-    <!-- =====================================================
-         FOOTER
-    ====================================================== -->
-
-    <footer class="footer">
-
-        <div class="container footer-grid">
-
-            <div>
-
-                <a href="#inicio"
-                    class="brand">
-
-                    <span class="brand-mark">
-
-                        <svg viewBox="0 0 24 24">
-
-                            <path d="M14.7 3.3a1 1 0 0 0-1.4 0l-2.1 2.1-1.5-1.5a1 1 0 0 0-1.4 1.4l1.5 1.5-6.5 6.5a2 2 0 0 0 0 2.8l2.2 2.2a2 2 0 0 0 2.8 0l6.5-6.5 1.5 1.5a1 1 0 0 0 1.4-1.4l-1.5-1.5 2.1-2.1a1 1 0 0 0 0-1.4l-3.6-3.6ZM5.9 17.1 3.7 14.9l6.5-6.5 2.2 2.2-6.5 6.5Z"/>
-
-                        </svg>
-
-                    </span>
-
-                    <span>
-
-                        <strong>
-                            San Francisco
-                        </strong>
-
-                        <small>
-                            FERRETERÍA
-                        </small>
-
-                    </span>
-
-                </a>
-
-
-                <p>
-                    Herramientas, materiales y soluciones
-                    para tus proyectos.
-                </p>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Navegación
-                </h4>
-
-                <a href="#inicio">
-                    Inicio
-                </a>
-
-                <a href="#categorias">
-                    Categorías
-                </a>
-
-                <a href="#productos">
-                    Productos
-                </a>
-
-                <a href="#nosotros">
-                    Nosotros
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Productos
-                </h4>
-
-                <a href="#productos">
-                    Herramientas
-                </a>
-
-                <a href="#productos">
-                    Electricidad
-                </a>
-
-                <a href="#productos">
-                    Plomería
-                </a>
-
-                <a href="#productos">
-                    Construcción
-                </a>
-
-            </div>
-
-
-            <div>
-
-                <h4>
-                    Contacto
-                </h4>
-
-                <span>
-                    Atención personalizada
-                </span>
-
-                <span>
-                    Consultas por WhatsApp
-                </span>
-
-                <a href="#"
-                    class="footer-wa"
-                    data-whatsapp>
-
-                    <span class="wa-icon-container"></span>
-
-                    WhatsApp
-
-                </a>
-
             </div>
 
         </div>
+    </div>
+
+    <a href="#categorias" class="scroll-cue relative z-10 mx-auto mt-14 hidden w-fit items-center justify-center text-slate-500 transition hover:text-accent md:flex">
+        <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+    </a>
+</section>
 
 
-        <div class="footer-bottom">
+<!-- ==========================================================
+     CATEGORÍAS
+=========================================================== -->
+<section id="categorias" class="relative overflow-hidden py-20">
 
-            <div class="container">
+    <div class="pointer-events-none absolute -left-24 top-10 h-72 w-72 rounded-full bg-accent/10 blur-[100px]"></div>
+    <div class="pointer-events-none absolute -right-24 bottom-0 h-72 w-72 rounded-full bg-blue-400/10 blur-[100px]"></div>
 
-                <span>
-                    © 2026 Ferretería San Francisco
-                </span>
+    <div class="relative mx-auto max-w-6xl px-4">
 
-                <a href="#inicio">
-                    Volver arriba ↑
-                </a>
+    <div class="reveal mx-auto max-w-lg text-center">
+        <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">Explorá el catálogo</span>
+        <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink md:text-4xl">Encontrá lo que necesitás.</h2>
+        <p class="mt-3 text-slate-500">Navegá por categorías y encontrá rápidamente los productos para tu proyecto.</p>
+    </div>
 
-            </div>
+    <div id="categories" class="reveal mt-12 grid grid-cols-2 gap-3.5 sm:grid-cols-3 lg:grid-cols-7">
+        <!-- generado por script.js -->
+    </div>
+    </div>
+</section>
 
+
+<!-- ==========================================================
+     PRODUCTOS
+=========================================================== -->
+<section id="productos" class="relative mx-auto max-w-6xl px-4 pb-20">
+
+    <div class="pointer-events-none absolute -right-32 top-24 h-80 w-80 rounded-full bg-accent/[0.06] blur-[110px]"></div>
+
+    <div class="reveal relative flex flex-col items-start justify-between gap-6 md:flex-row md:items-end">
+        <div>
+            <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">Catálogo</span>
+            <h2 class="mt-3 font-display text-3xl font-extrabold tracking-tight text-ink md:text-4xl">Productos destacados.</h2>
+            <p class="mt-3 max-w-md text-slate-500">Algunos de nuestros productos. Consultá precio y disponibilidad por WhatsApp.</p>
         </div>
 
-    </footer>
+        <div class="relative w-full md:w-72">
+            <svg viewBox="0 0 24 24" class="pointer-events-none absolute left-3.5 top-1/2 h-[18px] w-[18px] -translate-y-1/2 text-slate-400 transition-colors peer-focus:text-accent" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+            <input id="searchInput" type="text" placeholder="Buscar producto..."
+                class="peer w-full rounded-xl border border-slate-200 bg-white py-3 pl-10 pr-4 text-[14px] text-ink shadow-sm outline-none transition-all duration-300 focus:border-accent focus:shadow-lg focus:shadow-accent/10 focus:ring-4 focus:ring-accent/15">
+        </div>
+    </div>
 
+    <div id="filters" class="reveal mt-8 flex flex-wrap gap-2">
+        <!-- generado por script.js -->
+    </div>
 
-    <!-- =====================================================
-         WHATSAPP FLOTANTE
-    ====================================================== -->
+    <div id="productsGrid" class="mt-8 grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
+        <!-- generado por script.js -->
+    </div>
 
-    <a href="#"
-        class="floating-whatsapp"
-        data-whatsapp
-        aria-label="Consultar por WhatsApp">
-
-        <span class="wa-icon-container"></span>
-
-        <span>
+    <div id="emptyState" class="hidden flex-col items-center gap-4 rounded-2xl border border-dashed border-slate-300 py-16 text-center">
+        <svg viewBox="0 0 24 24" class="h-9 w-9 text-slate-300" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <div>
+            <p class="font-display font-bold text-ink">No encontramos ese producto</p>
+            <p class="mt-1 text-[14px] text-slate-500">Probá con otro nombre o consultanos directamente por WhatsApp.</p>
+        </div>
+        <button data-whatsapp class="inline-flex items-center gap-2 rounded-xl bg-accent px-5 py-2.5 font-display text-[13px] font-bold text-white transition hover:bg-accent-dark">
             Consultar por WhatsApp
-        </span>
+        </button>
+    </div>
+</section>
 
+
+<!-- ==========================================================
+     BENTO — SOBRE NOSOTROS
+=========================================================== -->
+<section id="nosotros" class="relative overflow-hidden bg-gradient-to-b from-white via-accent-light/25 to-white py-20">
+
+    <div class="pointer-events-none absolute left-1/2 top-0 h-96 w-96 -translate-x-1/2 rounded-full bg-accent/10 blur-[120px]"></div>
+
+    <div class="relative mx-auto max-w-6xl px-4">
+
+        <div class="reveal mx-auto max-w-lg text-center">
+            <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">Sobre nosotros</span>
+            <h2 class="mt-3 font-outfit text-3xl font-bold tracking-tight text-ink md:text-4xl">Soluciones para cada proyecto.</h2>
+            <p class="mt-3 text-slate-500">Buscamos ofrecer productos útiles para construcción, hogar, mantenimiento y taller, acompañando al cliente en la elección de lo que necesita.</p>
+        </div>
+
+        <div class="reveal mt-12 grid grid-cols-1 gap-4 md:grid-cols-4 md:grid-rows-2">
+
+            <div class="group md:col-span-2 md:row-span-2 rounded-2xl border border-accent/15 bg-gradient-to-br from-accent-light to-white p-8 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-accent/10">
+                <span class="grid h-12 w-12 place-items-center rounded-xl bg-ink text-accent transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                    <svg viewBox="0 0 24 24" class="h-6 w-6" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="m14.7 6.3-8.4 8.4a2 2 0 0 0 0 2.8l.2.2a2 2 0 0 0 2.8 0l8.4-8.4M14.7 6.3 17.7 3.3l3 3-3 3M14.7 6.3l3 3"/></svg>
+                </span>
+                <p class="mt-5 font-outfit text-xl font-semibold text-ink">Herramientas y materiales</p>
+                <p class="mt-2 text-[14.5px] leading-relaxed text-slate-500">Un catálogo pensado para cubrir cada etapa de tu proyecto, de la obra gruesa a los detalles de terminación.</p>
+            </div>
+
+            <div class="group rounded-2xl border border-blue-100 bg-blue-50/60 p-7 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-blue-100">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-blue-100 text-blue-600 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H7a4 4 0 0 0-4 4v2"/><circle cx="10" cy="7" r="4"/></svg>
+                </span>
+                <p class="mt-4 font-outfit font-semibold text-ink">Atención personalizada</p>
+                <p class="mt-1.5 text-[13.5px] text-slate-500">Te ayudamos a elegir lo que realmente necesitás.</p>
+            </div>
+
+            <div class="group rounded-2xl border border-emerald-100 bg-emerald-50/60 p-7 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-emerald-100">
+                <span class="grid h-11 w-11 place-items-center rounded-xl bg-emerald-100 text-emerald-600 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                    <span class="wa-icon-container h-5 w-5 [&_svg]:h-5 [&_svg]:w-5 [&_svg]:fill-current"></span>
+                </span>
+                <p class="mt-4 font-outfit font-semibold text-ink">Consultas directas</p>
+                <p class="mt-1.5 text-[13.5px] text-slate-500">Precios y stock, directo por WhatsApp.</p>
+            </div>
+
+            <div class="group md:col-span-2 rounded-2xl border border-amber-100 bg-amber-50/60 p-7 flex items-center gap-4 transition duration-300 hover:-translate-y-1.5 hover:shadow-xl hover:shadow-amber-100">
+                <span class="grid h-11 w-11 shrink-0 place-items-center rounded-xl bg-amber-100 text-amber-600 transition-transform duration-300 group-hover:scale-110 group-hover:-rotate-6">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M9 12.5 11 15l4-5"/><circle cx="12" cy="12" r="9"/></svg>
+                </span>
+                <div>
+                    <p class="font-outfit font-semibold text-ink">Catálogo actualizado</p>
+                    <p class="mt-0.5 text-[13.5px] text-slate-500">Información clara sobre disponibilidad.</p>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================================
+     CONTACTO / CTA
+=========================================================== -->
+<section id="contacto" class="mx-auto max-w-6xl px-4 py-20">
+    <div class="reveal relative overflow-hidden rounded-3xl bg-ink px-8 py-16 text-center">
+        <div class="blueprint-grid pointer-events-none absolute inset-0 opacity-[0.06]"></div>
+        <div class="relative">
+            <span class="text-[12px] font-bold uppercase tracking-[0.16em] text-accent">Estamos para ayudarte</span>
+            <h2 class="mx-auto mt-3 max-w-xl font-display text-3xl font-extrabold tracking-tight text-white md:text-4xl">¿Tenés una consulta? Hablemos por WhatsApp.</h2>
+            <p class="mx-auto mt-3 max-w-md text-slate-300">Consultá por productos, precios, disponibilidad o cualquier otra duda.</p>
+
+            <button data-whatsapp class="mt-8 inline-flex items-center gap-2 rounded-xl bg-accent px-7 py-3.5 font-display text-[14px] font-bold text-white shadow-[0_8px_24px_rgba(249,115,22,0.35)] transition-all duration-300 hover:-translate-y-0.5 hover:scale-[1.03] hover:bg-accent-dark hover:shadow-[0_12px_32px_rgba(249,115,22,0.5)] active:scale-95">
+                <span class="wa-icon-container h-4 w-4 [&_svg]:h-4 [&_svg]:w-4 [&_svg]:fill-current"></span>
+                Escribir por WhatsApp
+            </button>
+        </div>
+    </div>
+</section>
+
+
+<!-- ==========================================================
+     FOOTER
+=========================================================== -->
+<footer class="bg-ink pt-16 text-slate-400">
+    <div class="mx-auto grid max-w-6xl grid-cols-2 gap-10 px-4 pb-12 md:grid-cols-4">
+
+        <div class="col-span-2 md:col-span-1">
+            <a href="#inicio" class="flex items-center gap-2.5">
+                <span class="grid h-9 w-9 place-items-center rounded-xl bg-white/5 text-accent">
+                    <svg viewBox="0 0 24 24" class="h-5 w-5" fill="currentColor"><path d="M14.7 3.3a1 1 0 0 0-1.4 0l-2.1 2.1-1.5-1.5a1 1 0 0 0-1.4 1.4l1.5 1.5-6.5 6.5a2 2 0 0 0 0 2.8l2.2 2.2a2 2 0 0 0 2.8 0l6.5-6.5 1.5 1.5a1 1 0 0 0 1.4-1.4l-1.5-1.5 2.1-2.1a1 1 0 0 0 0-1.4l-3.6-3.6ZM5.9 17.1 3.7 14.9l6.5-6.5 2.2 2.2-6.5 6.5Z"/></svg>
+                </span>
+                <span class="font-display text-[15px] font-bold text-white">San Francisco</span>
+            </a>
+            <p class="mt-4 text-[13.5px] leading-relaxed">Herramientas, materiales y soluciones para tus proyectos.</p>
+        </div>
+
+        <div>
+            <p class="font-display text-[12px] font-bold uppercase tracking-wide text-white">Navegación</p>
+            <ul class="mt-4 space-y-2.5 text-[13.5px]">
+                <li><a href="#inicio" class="hover:text-white">Inicio</a></li>
+                <li><a href="#categorias" class="hover:text-white">Categorías</a></li>
+                <li><a href="#productos" class="hover:text-white">Productos</a></li>
+                <li><a href="#nosotros" class="hover:text-white">Nosotros</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-display text-[12px] font-bold uppercase tracking-wide text-white">Productos</p>
+            <ul class="mt-4 space-y-2.5 text-[13.5px]">
+                <li><a href="#productos" class="hover:text-white">Herramientas</a></li>
+                <li><a href="#productos" class="hover:text-white">Electricidad</a></li>
+                <li><a href="#productos" class="hover:text-white">Plomería</a></li>
+                <li><a href="#productos" class="hover:text-white">Construcción</a></li>
+            </ul>
+        </div>
+
+        <div>
+            <p class="font-display text-[12px] font-bold uppercase tracking-wide text-white">Contacto</p>
+            <ul class="mt-4 space-y-2.5 text-[13.5px]">
+                <li>Atención personalizada</li>
+                <li>Lun - Sáb</li>
+                <li><button data-whatsapp class="hover:text-white">Escribir por WhatsApp</button></li>
+            </ul>
+        </div>
+    </div>
+
+    <div class="border-t border-white/10 px-4 py-6">
+        <div class="mx-auto flex max-w-6xl flex-col items-center justify-between gap-3 text-[12.5px] sm:flex-row">
+            <p>© 2026 Ferretería San Francisco</p>
+            <button id="backToTop" class="back-to-top inline-flex items-center gap-1.5 hover:text-white">
+                Volver arriba
+                <svg viewBox="0 0 24 24" class="h-3.5 w-3.5" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 19V5M6 11l6-6 6 6"/></svg>
+            </button>
+        </div>
+    </div>
+</footer>
+
+
+<!-- ==========================================================
+     BOTONES FLOTANTES: UBICACIÓN + WHATSAPP
+=========================================================== -->
+<div class="fixed bottom-6 right-6 z-50 flex flex-col items-end gap-3">
+
+    <!-- Ubicación real del local -->
+    <a
+        href="https://www.google.com/maps/search/?api=1&query=H2GP%2BVP%2C%20Mandu%27Ara%20141104"
+        target="_blank"
+        rel="noopener"
+        class="location-btn group flex items-center gap-0 overflow-hidden rounded-full bg-white pl-0 pr-0 text-ink shadow-[0_8px_24px_rgba(15,23,42,0.18)] transition-all duration-300 hover:scale-105 hover:pl-4 hover:pr-5 active:scale-95"
+        aria-label="Ver ubicación en el mapa"
+    >
+        <span class="grid h-14 w-14 shrink-0 place-items-center transition-transform duration-300 group-hover:scale-110">
+            <svg viewBox="0 0 24 24" class="h-[22px] w-[22px]" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 21c-4-4-7-7.5-7-11a7 7 0 0 1 14 0c0 3.5-3 7-7 11Z"/><circle cx="12" cy="10" r="2.4"/></svg>
+        </span>
+        <span class="location-label max-w-0 overflow-hidden whitespace-nowrap text-[13.5px] font-semibold font-display opacity-0 transition-all duration-300 group-hover:max-w-[120px] group-hover:opacity-100">
+            Cómo llegar
+        </span>
     </a>
 
+    <!-- WhatsApp -->
+    <div class="group relative">
+        <span class="wa-tooltip pointer-events-none absolute right-16 top-1/2 -translate-y-1/2 whitespace-nowrap rounded-lg bg-ink px-3 py-1.5 text-[12.5px] font-semibold text-white opacity-0 shadow-lg transition-all group-hover:opacity-100">
+            ¿Dudas? Escribinos
+        </span>
 
-    <!-- =====================================================
-         BOTÓN VOLVER ARRIBA
-    ====================================================== -->
+        <button
+            data-whatsapp
+            aria-label="Consultar por WhatsApp"
+            class="relative grid h-14 w-14 place-items-center rounded-full bg-[#25D366] text-white shadow-[0_8px_24px_rgba(37,211,102,0.45)] transition hover:scale-105"
+        >
+            <span class="absolute inset-0 rounded-full animate-pulse-ring"></span>
+            <span class="wa-icon-container h-6 w-6 [&_svg]:h-6 [&_svg]:w-6 [&_svg]:fill-current"></span>
+            <span class="absolute -right-0.5 -top-0.5 grid h-3.5 w-3.5 place-items-center rounded-full bg-emerald-400 ring-2 ring-white"></span>
+        </button>
+    </div>
+</div>
 
-    <button
-        id="backToTop"
-        aria-label="Volver arriba">
-
-        ↑
-
-    </button>
-
-
-    <script src="script.js"></script>
-
+<script src="script.js"></script>
 </body>
-
 </html>
