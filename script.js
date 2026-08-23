@@ -122,6 +122,13 @@ const cartSendBtn = document.getElementById("cartSendBtn");
 const cartClearBtn = document.getElementById("cartClearBtn");
 const toastContainer = document.getElementById("toastContainer");
 
+const cartConfirm = document.getElementById("cartConfirm");
+const cartConfirmText = document.getElementById("cartConfirmText");
+const cartConfirmSubtext = document.getElementById("cartConfirmSubtext");
+const cartConfirmSendBtn = document.getElementById("cartConfirmSendBtn");
+const cartConfirmContinueBtn = document.getElementById("cartConfirmContinueBtn");
+const cartConfirmCloseBtn = document.getElementById("cartConfirmCloseBtn");
+
 
 // ==========================================================
 // CARRITO
@@ -174,7 +181,7 @@ function agregarAlCarrito(id) {
 
     guardarCarrito();
     renderCarrito();
-    mostrarToast(`${producto.nombre} se agregó al pedido`);
+    mostrarConfirmacionCarrito(producto);
 
     cartBadge.classList.remove("bump");
     void cartBadge.offsetWidth; // reinicia la animación aunque se agregue seguido
@@ -300,6 +307,7 @@ function renderCarrito() {
 }
 
 function abrirCarrito() {
+    ocultarConfirmacionCarrito();
     cartOverlay.classList.add("open");
     cartDrawer.classList.add("open");
     document.body.style.overflow = "hidden";
@@ -341,6 +349,54 @@ function mostrarToast(texto) {
 
     // Se elimina del DOM por temporizador (no depende de que la animación CSS corra)
     setTimeout(() => toast.remove(), 2600);
+
+}
+
+let cartConfirmTimeout = null;
+
+function mostrarConfirmacionCarrito(producto) {
+
+    if (!cartConfirm) return;
+
+    const cantidad = getCantidadTotalCarrito();
+
+    cartConfirmText.textContent = `${producto.nombre} se agregó`;
+    cartConfirmSubtext.textContent = cantidad === 1
+        ? "Tenés 1 producto en tu pedido."
+        : `Tenés ${cantidad} productos en tu pedido.`;
+
+    cartConfirm.classList.add("open");
+
+    clearTimeout(cartConfirmTimeout);
+    cartConfirmTimeout = setTimeout(ocultarConfirmacionCarrito, 7000);
+
+}
+
+function ocultarConfirmacionCarrito() {
+
+    if (!cartConfirm) return;
+
+    cartConfirm.classList.remove("open");
+    clearTimeout(cartConfirmTimeout);
+
+}
+
+function iniciarConfirmacionCarrito() {
+
+    if (cartConfirmSendBtn) {
+        cartConfirmSendBtn.addEventListener("click", function() {
+            ocultarConfirmacionCarrito();
+            enviarPedidoWhatsApp();
+        });
+    }
+
+    if (cartConfirmContinueBtn) {
+        cartConfirmContinueBtn.addEventListener("click", ocultarConfirmacionCarrito);
+    }
+
+    if (cartConfirmCloseBtn) {
+        cartConfirmCloseBtn.addEventListener("click", ocultarConfirmacionCarrito);
+    }
 
 }
 
@@ -853,6 +909,7 @@ function iniciarPagina() {
     iniciarMarquesina();
     iniciarTiltCard();
     iniciarEventosCarrito();
+    iniciarConfirmacionCarrito();
     renderCarrito();
 
 }
