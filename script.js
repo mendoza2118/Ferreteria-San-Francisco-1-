@@ -109,6 +109,255 @@ const menuBtn = document.getElementById("menuBtn");
 const mobileNav = document.getElementById("mobileNav");
 const backToTop = document.getElementById("backToTop");
 
+const cartBtn = document.getElementById("cartBtn");
+const cartBadge = document.getElementById("cartBadge");
+const cartOverlay = document.getElementById("cartOverlay");
+const cartDrawer = document.getElementById("cartDrawer");
+const cartCloseBtn = document.getElementById("cartCloseBtn");
+const cartItemsContainer = document.getElementById("cartItems");
+const cartEmpty = document.getElementById("cartEmpty");
+const cartFooter = document.getElementById("cartFooter");
+const cartTotalCount = document.getElementById("cartTotalCount");
+const cartSendBtn = document.getElementById("cartSendBtn");
+const cartClearBtn = document.getElementById("cartClearBtn");
+const toastContainer = document.getElementById("toastContainer");
+
+
+// ==========================================================
+// CARRITO
+// ==========================================================
+
+// Categoría excluida del carrito: se sigue consultando 1 a 1 por WhatsApp
+const CATEGORIA_SIN_CARRITO = "construccion";
+
+const CART_STORAGE_KEY = "sanfrancisco_carrito";
+
+let carrito = cargarCarritoGuardado();
+
+function cargarCarritoGuardado() {
+
+    try {
+        const guardado = localStorage.getItem(CART_STORAGE_KEY);
+        return guardado ? JSON.parse(guardado) : [];
+    } catch (error) {
+        return [];
+    }
+
+}
+
+function guardarCarrito() {
+
+    try {
+        localStorage.setItem(CART_STORAGE_KEY, JSON.stringify(carrito));
+    } catch (error) {
+        // almacenamiento no disponible: el carrito sigue funcionando en la sesión actual
+    }
+
+}
+
+function esElegibleParaCarrito(producto) {
+    return producto.categoria !== CATEGORIA_SIN_CARRITO;
+}
+
+function agregarAlCarrito(id) {
+
+    const producto = PRODUCTS.find(item => item.id === id);
+    if (!producto || !esElegibleParaCarrito(producto)) return;
+
+    const item = carrito.find(entry => entry.id === id);
+
+    if (item) {
+        item.cantidad += 1;
+    } else {
+        carrito.push({ id: id, cantidad: 1 });
+    }
+
+    guardarCarrito();
+    renderCarrito();
+    mostrarToast(`${producto.nombre} se agregó al pedido`);
+
+    cartBadge.classList.remove("bump");
+    void cartBadge.offsetWidth; // reinicia la animación aunque se agregue seguido
+    cartBadge.classList.add("bump");
+
+}
+
+function cambiarCantidad(id, delta) {
+
+    const item = carrito.find(entry => entry.id === id);
+    if (!item) return;
+
+    item.cantidad += delta;
+
+    if (item.cantidad <= 0) {
+        carrito = carrito.filter(entry => entry.id !== id);
+    }
+
+    guardarCarrito();
+    renderCarrito();
+
+}
+
+function quitarDelCarrito(id) {
+
+    carrito = carrito.filter(entry => entry.id !== id);
+    guardarCarrito();
+    renderCarrito();
+
+}
+
+function vaciarCarrito() {
+
+    carrito = [];
+    guardarCarrito();
+    renderCarrito();
+    cerrarCarrito();
+
+}
+
+function getCantidadTotalCarrito() {
+    return carrito.reduce((total, entry) => total + entry.cantidad, 0);
+}
+
+function crearItemCarritoHTML(entry) {
+
+    const producto = PRODUCTS.find(item => item.id === entry.id);
+    if (!producto) return "";
+
+    return `
+        <div class="cart-item flex items-center gap-3 border-b border-slate-100 py-3.5 last:border-0">
+
+            <div class="h-14 w-14 shrink-0 overflow-hidden rounded-lg bg-zinc-50 p-1.5">
+                <img src="${producto.imagen}" alt="${producto.nombre}" class="h-full w-full object-contain"
+                    onerror="this.onerror=null;this.src='${IMG_FALLBACK}';">
+            </div>
+
+            <div class="min-w-0 flex-1">
+                <p class="truncate font-display text-[13.5px] font-bold text-ink">${producto.nombre}</p>
+                <p class="text-[12px] text-slate-400">${producto.categoriaNombre}</p>
+            </div>
+
+            <div class="flex shrink-0 items-center gap-2">
+                <button class="grid h-7 w-7 place-items-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-accent/40 hover:text-accent active:scale-90" onclick="cambiarCantidad(${producto.id}, -1)" aria-label="Restar uno">−</button>
+                <span class="w-4 text-center font-display text-[13px] font-bold text-ink">${entry.cantidad}</span>
+                <button class="grid h-7 w-7 place-items-center rounded-lg border border-slate-200 text-slate-500 transition hover:border-accent/40 hover:text-accent active:scale-90" onclick="cambiarCantidad(${producto.id}, 1)" aria-label="Sumar uno">+</button>
+            </div>
+
+            <button class="shrink-0 text-slate-300 transition hover:text-red-500" onclick="quitarDelCarrito(${producto.id})" aria-label="Quitar ${producto.nombre}">
+                <svg viewBox="0 0 24 24" class="h-4 w-4" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"><path d="M18 6 6 18M6 6l12 12"/></svg>
+            </button>
+
+        </div>
+    `;
+
+}
+
+function renderCarrito() {
+
+    const cantidad = getCantidadTotalCarrito();
+
+    // Badge del header
+    if (cantidad > 0) {
+        cartBadge.textContent = cantidad > 99 ? "99+" : String(cantidad);
+        cartBadge.classList.remove("hidden");
+    } else {
+        cartBadge.classList.add("hidden");
+    }
+
+    // Botones "Agregar al carrito" de las tarjetas de producto (reflejan cantidad ya agregada)
+    document.querySelectorAll("[data-cart-add]").forEach(button => {
+
+        const id = Number(button.dataset.cartAdd);
+        const enCarrito = carrito.find(entry => entry.id === id);
+
+        button.querySelector(".cart-add-label").textContent = enCarrito
+            ? `En el pedido (${enCarrito.cantidad})`
+            : "Agregar al carrito";
+
+    });
+
+    // Panel del carrito
+    if (carrito.length === 0) {
+
+        cartItemsContainer.innerHTML = "";
+        cartItemsContainer.classList.add("hidden");
+        cartFooter.classList.add("hidden");
+        cartEmpty.classList.remove("hidden");
+        cartEmpty.classList.add("flex");
+
+    } else {
+
+        cartEmpty.classList.add("hidden");
+        cartEmpty.classList.remove("flex");
+        cartItemsContainer.classList.remove("hidden");
+        cartFooter.classList.remove("hidden");
+
+        cartItemsContainer.innerHTML = carrito.map(crearItemCarritoHTML).join("");
+        cartTotalCount.textContent = cantidad;
+
+    }
+
+}
+
+function abrirCarrito() {
+    cartOverlay.classList.add("open");
+    cartDrawer.classList.add("open");
+    document.body.style.overflow = "hidden";
+}
+
+function cerrarCarrito() {
+    cartOverlay.classList.remove("open");
+    cartDrawer.classList.remove("open");
+    document.body.style.overflow = "";
+}
+
+function enviarPedidoWhatsApp() {
+
+    if (carrito.length === 0) return;
+
+    const lineas = carrito.map(entry => {
+        const producto = PRODUCTS.find(item => item.id === entry.id);
+        return producto ? `• ${entry.cantidad}x ${producto.nombre}` : "";
+    }).filter(Boolean).join("\n");
+
+    const mensaje = `Hola, quiero encargar los siguientes productos para retirar:\n\n${lineas}\n\n¿Me confirman disponibilidad?`;
+
+    abrirWhatsApp(mensaje);
+
+}
+
+function mostrarToast(texto) {
+
+    if (!toastContainer) return;
+
+    const toast = document.createElement("div");
+    toast.className = "toast pointer-events-auto flex items-center gap-2 rounded-full bg-ink px-4 py-2.5 text-[13px] font-semibold text-white shadow-xl";
+    toast.innerHTML = `
+        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0 text-emerald-400" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="m5 13 4 4L19 7"/></svg>
+        <span>${texto}</span>
+    `;
+
+    toastContainer.appendChild(toast);
+
+    // Se elimina del DOM por temporizador (no depende de que la animación CSS corra)
+    setTimeout(() => toast.remove(), 2600);
+
+}
+
+function iniciarEventosCarrito() {
+
+    if (cartBtn) cartBtn.addEventListener("click", abrirCarrito);
+    if (cartCloseBtn) cartCloseBtn.addEventListener("click", cerrarCarrito);
+    if (cartOverlay) cartOverlay.addEventListener("click", cerrarCarrito);
+    if (cartSendBtn) cartSendBtn.addEventListener("click", enviarPedidoWhatsApp);
+    if (cartClearBtn) cartClearBtn.addEventListener("click", vaciarCarrito);
+
+    document.addEventListener("keydown", function(event) {
+        if (event.key === "Escape") cerrarCarrito();
+    });
+
+}
+
 
 // ==========================================================
 // GENERAR CATEGORÍAS (tarjetas)
@@ -241,6 +490,27 @@ function crearProductoHTML(producto) {
                     <span class="text-[13px] font-semibold text-slate-400">${producto.precio}</span>
                 </div>
 
+                ${esElegibleParaCarrito(producto) ? `
+                <div class="mt-3 flex items-center gap-2">
+                    <button
+                        class="product-btn flex-1 inline-flex items-center justify-center gap-2 rounded-xl bg-ink px-4 py-3 font-display text-[13px] font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:shadow-lg hover:shadow-accent/25 active:scale-95"
+                        data-cart-add="${producto.id}"
+                        onclick="agregarAlCarrito(${producto.id})"
+                        aria-label="Agregar ${producto.nombre} al carrito"
+                    >
+                        <svg viewBox="0 0 24 24" class="h-4 w-4 shrink-0" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M6 6h15l-1.5 9h-12L5 3H2"/><circle cx="9" cy="20" r="1.4"/><circle cx="18" cy="20" r="1.4"/></svg>
+                        <span class="cart-add-label">Agregar al carrito</span>
+                    </button>
+
+                    <button
+                        class="grid h-11 w-11 shrink-0 place-items-center rounded-xl border border-slate-200 text-slate-500 transition-all duration-300 hover:scale-105 hover:border-emerald-300 hover:text-emerald-600 active:scale-95"
+                        onclick="abrirWhatsAppPorId(${producto.id})"
+                        aria-label="Consultar ${producto.nombre} por WhatsApp"
+                    >
+                        <span class="[&_svg]:h-4 [&_svg]:w-4 [&_svg]:fill-current">${WA_ICON}</span>
+                    </button>
+                </div>
+                ` : `
                 <button
                     class="product-btn mt-3 inline-flex w-full items-center justify-center gap-2 rounded-xl bg-ink px-4 py-3 font-display text-[13.5px] font-bold text-white transition-all duration-300 hover:scale-[1.02] hover:bg-accent hover:shadow-lg hover:shadow-accent/25 active:scale-95"
                     onclick="abrirWhatsAppPorId(${producto.id})"
@@ -249,6 +519,7 @@ function crearProductoHTML(producto) {
                     <span class="[&_svg]:h-4 [&_svg]:w-4 [&_svg]:fill-current">${WA_ICON}</span>
                     <span>Consultar por WhatsApp</span>
                 </button>
+                `}
 
             </div>
 
@@ -288,6 +559,7 @@ function renderProducts() {
     productsGrid.innerHTML = productos.map(crearProductoHTML).join("");
 
     activarAnimaciones();
+    renderCarrito();
 
 }
 
@@ -580,6 +852,8 @@ function iniciarPagina() {
     iniciarPalabraRotativa();
     iniciarMarquesina();
     iniciarTiltCard();
+    iniciarEventosCarrito();
+    renderCarrito();
 
 }
 
