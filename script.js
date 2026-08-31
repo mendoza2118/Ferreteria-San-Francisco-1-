@@ -223,8 +223,7 @@ function renderCarrito() {
     } else {
         cartBadge.classList.add("hidden");
     }
-
-    // Botones "Agregar al carrito" de las tarjetas de producto (reflejan cantidad ya agregada)
+    
     document.querySelectorAll("[data-cart-add]").forEach(button => {
 
         const id = Number(button.dataset.cartAdd);
